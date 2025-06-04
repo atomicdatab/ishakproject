@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Courses - Lycée La Salle Saint-Denis</title>
+    <link rel="stylesheet" href="css/gestion-courses.css">
+</head>
+<body>
+    <header>
+        <h1>Course d'Endurance</h1>
+        <p>Administration et gestion des courses</p>
+    </header>
+
+    <nav class="menu-nav">
+        <div class="container">
+            <div class="logo"></div>
+            <ul>
+                <li>
+                    <a href="index.html">ACCUEIL</a>
+                </li>
+                <li>
+                    <a href="course.html">COURSES</a>
+                </li>
+                <li>
+                    <a href="creation.html">CRÉER COURSE</a>
+                </li>
+                <li>
+                    <a href="#" class="active">ADMINISTRATION</a>
+                </li>
+                <li>
+                    <a href="inscription.html">INSCRIPTION</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="page-title">
+            <h2>Gestion des courses</h2>
+            <p>Administrez vos courses : modifier, supprimer ou consulter les détails</p>
+        </div>
+
+        <div class="gestion-container">
+            <div class="actions-bar">
+                <h3>Courses enregistrées</h3>
+                <a href="création.html" class="btn btn-primary">+ Nouvelle course</a>
+            </div>
+
+            <div class="courses-list">
+                <!-- Course 1 -->
+                <div class="course-item" data-course-id="1">
+                    <div class="course-info">
+                        <div class="course-header">
+                            <h4>Marathon de printemps</h4>
+                            <div class="course-status active">Active</div>
+                        </div>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <span class="label">Date :</span>
+                                <span class="value">20 Mars 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Lieu :</span>
+                                <span class="value">Plateau sportif du lycée</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Type :</span>
+                                <span class="value">Course à la distance - 5km</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Participants :</span>
+                                <span class="value">35/50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-small btn-outline" onclick="voirCourse(1)">Voir</button>
+                        <button class="btn btn-small btn-warning" onclick="modifierCourse(1)">Modifier</button>
+                        <button class="btn btn-small btn-danger" onclick="supprimerCourse(1)">Supprimer</button>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-item" data-course-id="2">
+                    <div class="course-info">
+                        <div class="course-header">
+                            <h4>Relais inter-classes</h4>
+                            <div class="course-status active">Active</div>
+                        </div>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <span class="label">Date :</span>
+                                <span class="value">25 Avril 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Lieu :</span>
+                                <span class="value">Stade municipal</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Type :</span>
+                                <span class="value">Relais 4×400m</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Participants :</span>
+                                <span class="value">12/15 équipes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-small btn-outline" onclick="voirCourse(2)">Voir</button>
+                        <button class="btn btn-small btn-warning" onclick="modifierCourse(2)">Modifier</button>
+                        <button class="btn btn-small btn-danger" onclick="supprimerCourse(2)">Supprimer</button>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-item" data-course-id="3">
+                    <div class="course-info">
+                        <div class="course-header">
+                            <h4>Course d'automne</h4>
+                            <div class="course-status inactive">Terminée</div>
+                        </div>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <span class="label">Date :</span>
+                                <span class="value">15 Septembre 2024</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Lieu :</span>
+                                <span class="value">Plateau sportif du lycée</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Type :</span>
+                                <span class="value">Course au temps - 30 min</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Participants :</span>
+                                <span class="value">50/50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-small btn-outline" onclick="voirCourse(3)">Voir</button>
+                        <button class="btn btn-small btn-warning" onclick="modifierCourse(3)">Modifier</button>
+                        <button class="btn btn-small btn-danger" onclick="supprimerCourse(3)">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de modification -->
+    <div id="modal-modification" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Modifier la course</h3>
+                <span class="close" onclick="fermerModal()">&times;</span>
+            </div>
+            <form id="form-modification">
+                <div class="form-section">
+                    <h4>Informations générales</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="edit-nom">Nom de la course *</label>
+                            <input type="text" id="edit-nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-date">Date de la course *</label>
+                            <input type="date" id="edit-date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-lieu">Lieu de la course *</label>
+                            <input type="text" id="edit-lieu" name="lieu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-participants">Nombre maximum de participants</label>
+                            <input type="number" id="edit-participants" name="participants" min="1" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Type de course</h4>
+                    <div class="form-group">
+                        <label for="edit-type">Type de course</label>
+                        <select id="edit-type" name="type">
+                            <option value="temps">Course au temps</option>
+                            <option value="distance">Course à la distance</option>
+                            <option value="relais">Relais</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="fermerModal()">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation de suppression -->
+    <div id="modal-suppression" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Confirmer la suppression</h3>
+                <span class="close" onclick="fermerModalSuppression()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer cette course ?</p>
+                <p><strong id="course-nom-suppression"></strong></p>
+                <p class="warning">Cette action est irréversible.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="fermerModalSuppression()">Annuler</button>
+                <button type="button" class="btn btn-danger" id="confirmer-suppression">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">Lycée La Salle Saint-Denis</div>
+                <p>Notre établissement s'engage à promouvoir le sport et les activités culturelles pour enrichir la vie étudiante.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="course.html">La Course</a></li>
+                    <li><a href="création.html">Créer Course</a></li>
+                    <li><a href="inscription.html">Inscription</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Adresse: 6-8 Place de la Résistance, 93200 Saint-Denis</p>
+                <p>Téléphone: 01 55 87 45 00</p>
+                <p>Email: contact@lasalle-stden.net</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lycée La Salle Saint-Denis - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Scripts API -->
+    <script src="js/api-config.js"></script>
+    <script src="js/gestion-courses.js"></script>
+</body>
+</html>

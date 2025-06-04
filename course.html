@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Lycée La Salle Saint-Denis</title>
+    <link rel="stylesheet" href="css/course.css">
+</head>
+<body>
+    <header>
+        <h1>Course d'Endurance</h1>
+        <p>Découvrez et inscrivez-vous aux prochains événements sportifs</p>
+    </header>
+
+    <nav class="menu-nav">
+        <div class="container">
+            <div class="logo"></div>
+            <ul>
+                <li>
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="#" class="active">Courses</a>
+                </li>
+                <li>
+                    <a href="creation.html">Créer Course</a>
+                </li>
+                <li>
+                    <a href="inscription.html">Inscription</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h2>Calendrier des courses</h2>
+            <p>Retrouvez toutes les courses d'endurance à venir et inscrivez-vous dès maintenant pour participer à ces événements sportifs exceptionnels.</p>
+        </div>
+
+        <div class="filter-container">
+            <div class="filter-row">
+                <div class="filter-item">
+                    <label for="filter-type">Type de course</label>
+                    <select id="filter-type">
+                        <option value="all">Tous les types</option>
+                        <option value="time">Course au temps</option>
+                        <option value="distance">Course à la distance</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="filter-date">Date</label>
+                    <input type="date" id="filter-date">
+                </div>
+                <div class="filter-item">
+                    <label for="filter-location">Lieu</label>
+                    <select id="filter-location">
+                        <option value="all">Tous les lieux</option>
+                        <option value="plateau">Plateau sportif</option>
+                        <option value="stade">Stade</option>
+                        <option value="gymnase">Gymnase</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button class="btn btn-outline btn-small">RÉINITIALISER</button>
+                <button class="btn btn-small">FILTRER</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">Lycée La Salle Saint-Denis</div>
+                <p>Notre établissement s'engage à promouvoir le sport et les activités culturelles pour enrichir la vie étudiante.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="course.html">La Course</a></li>
+                    <li><a href="inscription.html">Inscription</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Adresse: 6-8 Place de la Résistance, 93200 Saint-Denis</p>
+                <p>Téléphone: 01 55 87 45 00</p>
+                <p>Email: contact@lasallesaintdenis.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lycée La Salle Saint-Denis - Tous droits réservés</p>
+            <a href="gestion-courses.html" class="admin-link">Administration</a>
+        </div>
+    </footer>
+    <!-- Scripts API -->
+    <script src="js/api-config.js"></script>
+    <script src="js/course.js"></script>
+</body>
+</html>

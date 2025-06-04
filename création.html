@@ -1,0 +1,195 @@
+<div id="time-settings" class="toggle-content">
+                        <div class="form-group">
+                            <label for="time-duration">Durée (minutes) *</label>
+                            <input type="number" id="time-duration" name="time-duration" min="5" max="120" value="30">
+                        </div>
+                    </div>
+
+                    <div id="distance-settings" class="toggle-content">
+                        <div class="form-group">
+                            <label for="distance-total">Distance totale (mètres) *</label>
+                            <input type="number" id="distance-total" name="distance-total" min="500" max="10000" value="5000">
+                        </div>
+                    </div><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une Course - Lycée La Salle Saint-Denis</title>
+    <link rel="stylesheet" href="css/création.css">
+</head>
+<body>
+    <header>
+        <h1>Course d'Endurance</h1>
+        <p>Découvrez et inscrivez-vous aux prochains événements sportifs</p>
+    </header>
+
+    <nav class="menu-nav">
+        <div class="container">
+            <div class="logo"></div>
+            <ul>
+                <li>
+                    <a href="index.html">ACCUEIL</a>
+                </li>
+                <li>
+                    <a href="course.html">COURSES</a>
+                </li>
+                <li>
+                    <a href="#" class="active">CRÉER COURSE</a>
+                </li>
+                <li>
+                    <a href="inscription.html">INSCRIPTION</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="page-title">
+            <h2>Créer une nouvelle course</h2>
+            <p>Configurez tous les paramètres pour organiser votre propre événement sportif</p>
+        </div>
+
+    <div class="main-content">
+        <div class="create-race">
+            <div class="form-intro">
+                <p>Utilisez ce formulaire pour créer et configurer une nouvelle course d'endurance. Une fois créée, les participants pourront s'y inscrire et vous pourrez gérer l'événement depuis votre espace organisateur.</p>
+                
+                <div class="highlight-box">
+                    <h3>Conseil pour les organisateurs</h3>
+                    <p>Pour une meilleure organisation, prévoyez votre course au moins deux semaines à l'avance et précisez toutes les informations importantes pour les participants (équipement nécessaire, conditions particulières, etc.).</p>
+                </div>
+            </div>
+
+            <form id="create-race-form">
+                <div class="form-section">
+                    <h3>Informations générales</h3>
+                    <div class="form-group">
+                        <label for="race-name">Nom de la course *</label>
+                        <input type="text" id="race-name" name="race-name" required placeholder="Ex: Marathon de printemps">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="race-date">Date de la course *</label>
+                        <input type="text" id="race-date" name="race-date" required placeholder="jj/mm/aaaa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="race-location">Lieu de la course *</label>
+                        <input type="text" id="race-location" name="race-location" required placeholder="Ex: Plateau sportif du lycée">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="race-max-participants">Nombre maximum de participants</label>
+                        <input type="number" id="race-max-participants" name="race-max-participants" min="5" max="100" value="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="race-description">Description de la course</label>
+                        <textarea id="race-description" name="race-description" placeholder="Décrivez l'événement, l'ambiance et les objectifs de la course..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Type de course</h3>
+                    <p>Sélectionnez le type de course que vous souhaitez organiser :</p>
+                    
+                    <div class="race-types">
+                        <div class="race-type" onclick="selectRaceType(this, 'time')" id="race-type-time">
+                            <div class="race-type-header">
+                                <div class="race-type-icon">⏱</div>
+                                <div class="race-type-title">Course au temps</div>
+                            </div>
+                            <div class="race-type-body">
+                                <p>Les participants courent pendant une durée déterminée. L'objectif est de parcourir la plus grande distance possible dans le temps imparti.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="race-type" onclick="selectRaceType(this, 'distance')" id="race-type-distance">
+                            <div class="race-type-header">
+                                <div class="race-type-icon">📏</div>
+                                <div class="race-type-title">Course à la distance</div>
+                            </div>
+                            <div class="race-type-body">
+                                <p>Les participants doivent parcourir une distance fixe. L'objectif est de terminer le parcours dans le meilleur temps possible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toggle-section">
+                    <div class="toggle-header" onclick="toggleSection('options-content')">
+                        <h3>Options avancées</h3>
+                        <span>▼</span>
+                    </div>
+                    
+                    <div id="options-content" class="toggle-content">
+                        <div class="form-group">
+                            <label for="race-start-time">Heure de début</label>
+                            <input type="time" id="race-start-time" name="race-start-time">
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="race-rfid" name="race-rfid" checked>
+                                Utiliser le système RFID pour le suivi des coureurs
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="race-app" name="race-app" checked>
+                                Activer le suivi via l'application mobile
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="race-display" name="race-display" checked>
+                                Afficher les résultats en temps réel sur l'écran principal
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <button type="button" class="btn btn-secondary" id="reset-form">RÉINITIALISER</button>
+                    <button type="submit" class="btn">CRÉER LA COURSE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">Lycée La Salle Saint-Denis</div>
+                <p>Notre établissement s'engage à promouvoir le sport et les activités culturelles pour enrichir la vie étudiante.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="course.html">La Course</a></li>
+                    <li><a href="création.html">Créer Course</a></li>
+                    <li><a href="inscription.html">Inscription</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Adresse: 6-8 Place de la Résistance, 93200 Saint-Denis</p>
+                <p>Téléphone: 01 55 87 45 00</p>
+                <p>Email: contact@lasalle-stden.net</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lycée La Salle Saint-Denis - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Scripts API -->
+    <script src="js/api-config.js"></script>
+    <script src="js/creation.js"></script>
+    <script src="js/debug.js"></script>
+</body>
+</html>

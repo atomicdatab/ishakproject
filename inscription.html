@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Course d'Endurance - Lycée La Salle Saint-Denis</title>
+    <link rel="stylesheet" href="css/inscription.css">
+</head>
+<body>
+    <header>
+        <h1>Course d'Endurance</h1>
+        <p>Rejoignez la compétition sportive du Lycée La Salle Saint-Denis</p>
+    </header>
+
+    <nav class="menu-nav">
+        <div class="container">
+            <div class="logo"></div>
+            <ul>
+                <li>
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="course.html">La Course</a>
+                </li>
+                <li>
+                    <a href="creation.html">Créer Course</a>
+                </li>
+                <li>
+                    <a href="#" class="active">Inscription</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="inscription-form">
+            <form id="inscription-form">
+                <div class="form-section">
+                    <h3>Informations personnelles</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date-naissance">Date de naissance *</label>
+                            <input type="text" id="date-naissance" name="date-naissance" placeholder="jj/mm/aaaa" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="statut">Statut *</label>
+                            <select id="statut" name="statut" required>
+                                <option value="" selected disabled>Sélectionnez votre statut</option>
+                                <option value="eleve">Élève</option>
+                                <option value="personnel">Personnel de l'établissement</option>
+                                <option value="externe">Externe</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Informations médicales</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="poids">Poids (kg)</label>
+                            <input type="number" id="poids" name="poids" min="30" max="150">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="taille">Taille (cm)</label>
+                            <input type="number" id="taille" name="taille" min="100" max="220">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="informations-medicales">Informations médicales importantes (allergies, conditions particulières...)</label>
+                        <textarea id="informations-medicales" name="informations-medicales" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="certificat" name="certificat" required>
+                        Je m'engage à fournir un certificat médical de non contre-indication à la pratique sportive le jour de la course (obligatoire pour les participants externes).
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="consentement" name="consentement" required>
+                        J'accepte que mes données personnelles soient utilisées dans le cadre de l'organisation de la course d'endurance et des services associés.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="droit-image" name="droit-image">
+                        J'autorise le Lycée La Salle Saint-Denis à utiliser mon image dans le cadre de la communication autour de l'événement.
+                    </label>
+                </div>
+
+                <div class="btn-container">
+                    <button type="button" class="btn btn-secondary">ANNULER</button>
+                    <button type="submit" class="btn">S'INSCRIRE</button>
+                </div>
+                
+                <!-- Bouton de test API (visible uniquement en mode développement) -->
+                <div class="api-test-section" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+                    <h4>Outils de développement</h4>
+                    <p>Ces boutons sont destinés au débogage et seront supprimés en production.</p>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button type="button" class="btn btn-secondary" onclick="testerConnexionAPI()">Tester la connexion API</button>
+                        <button type="button" class="btn btn-secondary" onclick="testerAjoutCoureur()">Tester l'ajout d'un coureur</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">Lycée La Salle Saint-Denis</div>
+                <p>Notre établissement s'engage à promouvoir le sport et les activités culturelles pour enrichir la vie étudiante.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="course.html">La Course</a></li>
+                    <li><a href="création.html">Créer Course</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Adresse: 6-8 Place de la Résistance, 93200 Saint-Denis</p>
+                <p>Téléphone: 01 55 87 45 00</p>
+                <p>Email: contact@lasalle-stden.net</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lycée La Salle Saint-Denis - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Scripts API -->
+    <script src="js/api-config.js"></script>
+    <script src="js/inscription.js"></script>
+</body>
+</html>
